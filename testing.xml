@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="JaxPortal">
+	<test name ="Test-1">
+		<groups>
+			<run>
+				<include name="smoke" />
+			</run>
+		</groups>
+		<classes>
+			<class name="jaxportal.tests.adminTest" />
+		</classes>
+	</test>
+</suite>
