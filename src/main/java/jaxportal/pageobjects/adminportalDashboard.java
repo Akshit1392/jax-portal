@@ -21,9 +21,7 @@ public class adminportalDashboard extends Utilities{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="//div[@class='h-[calc(100vh-14rem)] overflow-y-auto bg-white px-6 py-3']")
-	WebElement dashboardelements;
-	
+
 	@FindBy(xpath="//app-kpi-cards[@class='ng-star-inserted']/div/div/div")
 	WebElement critial;
 	
@@ -54,13 +52,13 @@ public class adminportalDashboard extends Utilities{
 	@FindBy(xpath ="//mat-datepicker-toggle/button[@aria-label='Open calendar']")
 	WebElement calenderclick;
 	
-	@FindBy(xpath ="//div[@class='mat-datepicker-content-container ng-tns-c2024481049-21']")
+	@FindBy(xpath ="//mat-calendar[@id='mat-datepicker-0']")
 	WebElement fullcalender;
 	
 	@FindBy(xpath = "//button[@aria-label='Choose month and year']")
 	WebElement yearselector;
 	
-	@FindBy(xpath="//button[@aria-label='Choose month and year']/span/span")
+	@FindBy(xpath="")
 	WebElement yeartext;
 	
 	@FindBy(xpath = "//tbody[@class='mat-calendar-body']")
@@ -190,24 +188,71 @@ public class adminportalDashboard extends Utilities{
 	    }
 	}
 	public void opencalender() {
-		waitForElementToAppear(dashboardelements);
+		System.out.println("Hii open callender is working fine");
 		calenderclick.click();
 	}
 	public void datepicker() {
-//		waitForElementToAppear(fullcalender);
-		yearselector.click();
-		String currentyear = yeartext.getText();
+		System.out.println("Date picker is working fine");
+		waitForElementToAppear(fullcalender);
+		String currentyear = yearselector.getText();
 		System.out.println(currentyear);
-//		
-//		List<WebElement> yearCells = yearTable.findElements(By.xpath(".//tr/td/button/span"));
-//
-//		String targetYear = "2024"; 
-//		for (WebElement yearCell : yearCells) {
-//		    if (yearCell.getText().equals(targetYear)) {
-//		        yearCell.click(); 
-//		        break;
-//		    }
-//		}
-
+		yearselector.click();
+	}
+	public void startdatepicker() {
+		String year = "2024";
+		String month = "MAR";
+		String date = "8";
+		
+		List<WebElement> allYears = driver.findElements(By.xpath("//td[@role='gridcell']//span[contains(@class, 'mat-calendar-body-cell-content')]"));
+		for (WebElement yearElement : allYears) {
+		    String yearText = yearElement.getText().trim();
+		    if (yearText.equals(year)) {
+		        yearElement.click();
+		        break;
+		    }
+		}
+		List<WebElement> allmonth = driver.findElements(By.xpath("//span[contains(@class, 'mat-calendar-body-cell-content')]"));
+		for (WebElement span : allmonth) {
+		    if (span.getText().trim().equals(month)) {
+		        span.click();
+		        break;
+		    }
+		}
+		List<WebElement> alldate = driver.findElements(By.xpath("//span[contains(@class, 'mat-calendar-body-cell-content mat-focus-indicator')]"));
+		for(WebElement findate : alldate) {
+			if(findate.getText().trim().equals(date)) {
+				findate.click();
+				break;
+			}
+		}
+	}
+	
+	public void enddatepicker() {
+		String year = "2024";
+		String month = "MAR";
+		String date = "8";
+		
+		List<WebElement> allYears = driver.findElements(By.xpath("//td[@role='gridcell']//span[contains(@class, 'mat-calendar-body-cell-content')]"));
+		for (WebElement yearElement : allYears) {
+		    String yearText = yearElement.getText().trim();
+		    if (yearText.equals(year)) {
+		        yearElement.click();
+		        break;
+		    }
+		}
+		List<WebElement> allmonth = driver.findElements(By.xpath("//span[contains(@class, 'mat-calendar-body-cell-content')]"));
+		for (WebElement span : allmonth) {
+		    if (span.getText().trim().equals(month)) {
+		        span.click();
+		        break;
+		    }
+		}
+		List<WebElement> alldate = driver.findElements(By.xpath("//span[contains(@class, 'mat-calendar-body-cell-content mat-focus-indicator')]"));
+		for(WebElement findate : alldate) {
+			if(findate.getText().trim().equals(date)) {
+				findate.click();
+				break;
+			}
+		}
 	}
 }

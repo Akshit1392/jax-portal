@@ -12,7 +12,6 @@
         <methods>
           <include name="FlowFour"/>
           <include name="launchApplication"/>
-          <include name="closeBrowser"/>
         </methods>
       </class> <!-- jaxportal.tests.adminTest -->
     </classes>

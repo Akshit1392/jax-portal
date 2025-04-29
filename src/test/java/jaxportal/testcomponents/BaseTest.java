@@ -68,10 +68,10 @@ public class BaseTest {
 		return login;
 	}
 
-	@AfterMethod(alwaysRun = true)
-	public void closeBrowser() {
-		if (driver != null) {
-			driver.quit();
-		}
-	}
+//	@AfterMethod(alwaysRun = true)
+//	public void closeBrowser() {
+//		if (driver != null) {
+//			driver.quit();
+//		}
+//	}
 }

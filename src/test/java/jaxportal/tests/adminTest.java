@@ -46,5 +46,7 @@ public class adminTest extends BaseTest{
 		adminportalDashboard dashboard = new adminportalDashboard(driver);
 		dashboard.opencalender();
 		dashboard.datepicker();
+		dashboard.startdatepicker();
+		dashboard.enddatepicker();
 	}
 }
